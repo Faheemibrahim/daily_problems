@@ -2,7 +2,7 @@
 
 | Day | Topic | Warmup Done | Problems Done |
 |-----|-------|-------------|---------------|
-| 01  | Lists and Indexing | [✔] | [] |
+| 01  | Lists and Indexing | [✔] | [ ] |
 | 02  | Loops | [ ] | [ ] |
 | 03  | List Comprehensions | [ ] | [ ] |
 | 04  | Slicing and Nesting | [ ] | [ ] |
