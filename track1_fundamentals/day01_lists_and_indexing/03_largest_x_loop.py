@@ -14,7 +14,24 @@ def largest_x(points):
     Return the (x, y, z) tuple that has the largest x value.
     Use a loop and a tracking variable — no built-in max().
     """
-    pass
+    
+
+    x = 0.0
+    best_point = (0.0, 0.0, 0.0)
+
+    for point in range(len(points)):     # point will do 0, 1, 2, 3
+        if points[point][0] > x:             # index 
+            x = float(points[point][0])
+            best_point = points[point]
+            #print(x)
+            print(best_point)
+
+
+    return best_point
+
+    
+
+    
 
 
 if __name__ == "__main__":

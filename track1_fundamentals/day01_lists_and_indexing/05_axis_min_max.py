@@ -13,8 +13,45 @@ def axis_min_max(points):
     Return a dict with keys 'x_min', 'x_max', 'y_min', 'y_max', 'z_min', 'z_max'.
     Do not use min() or max().
     """
-    pass
+    
+    x_max = points[0][0]
+    x_min = points[0][0]
 
+    y_max = points[0][1]
+    y_min = points[0][1]
+
+    z_max = points[0][2]
+    z_min = points[0][2]
+
+    for key in points:
+
+        if key[0] > x_max:
+            x_max = key[0] 
+        
+        if key[0] < x_min:
+            x_min = key[0]
+        
+        if key[1] > y_max:
+            y_max = key[1] 
+        
+        if key[1] < y_min:
+            y_min = key[1]
+
+        if key[2] > z_max:
+            z_max = key[2] 
+        
+        if key[2] < z_min:
+            z_min = key[2]
+        
+    return {
+        "x_min": x_min,
+        "x_max": x_max,
+        "y_min": y_min,
+        "y_max": y_max,
+        "z_min": z_min,
+        "z_max": z_max
+    }
+            
 
 if __name__ == "__main__":
     pts = [

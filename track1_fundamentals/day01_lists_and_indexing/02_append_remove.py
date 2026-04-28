@@ -13,7 +13,13 @@ def append_and_remove(points, new_point):
     Append new_point to points, then remove the element at index 1.
     Return the modified list.
     """
-    pass
+    
+    points.append(new_point)
+    #del points[1]
+    #points.pop(1)
+    #points.remove(points[1])
+
+    return points
 
 
 if __name__ == "__main__":

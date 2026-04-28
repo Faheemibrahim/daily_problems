@@ -14,8 +14,8 @@ def access_elements(points):
     Given a list of (x, y, z) tuples, return a tuple of
     (first_element, third_element, last_element).
     """
-    pass
 
+    return points[0], points[2], points[-1]
 
 if __name__ == "__main__":
     pts = [

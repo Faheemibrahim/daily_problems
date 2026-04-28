@@ -16,6 +16,22 @@
 | 12  | Numpy Basics | [ ] | [ ] |
 | 13  | Numpy Masking | [ ] | [ ] |
 | 14  | Numpy Distance | [ ] | [ ] |
+| 15  | Extra Drills | [ ] | [ ] |
+| 16  | Graph Basics | [ ] | [ ] |
+| 17  | BFS | [ ] | [ ] |
+| 18  | DFS | [ ] | [ ] |
+| 19  | BFS/DFS Applications | [ ] | [ ] |
+| 20  | KD-Tree Build | [ ] | [ ] |
+| 21  | KD-Tree Search | [ ] | [ ] |
+| 22  | KD-Tree Applications | [ ] | [ ] |
+| 23  | Sorting Algorithms | [ ] | [ ] |
+| 24  | Binary Search | [ ] | [ ] |
+| 25  | Recursion | [ ] | [ ] |
+| 26  | RANSAC | [ ] | [ ] |
+| 27  | Clustering | [ ] | [ ] |
+| 28  | Kalman Filter | [ ] | [ ] |
+| 29  | Hungarian Algorithm | [ ] | [ ] |
+| 30  | Full Pipeline | [ ] | [ ] |
 
 ---
 

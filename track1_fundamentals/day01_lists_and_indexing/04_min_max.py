@@ -13,7 +13,22 @@ def find_min_max(numbers):
     Return (minimum, maximum) from a list of numbers.
     Do not use min() or max().
     """
-    pass
+    x = numbers[0]
+    y = numbers[0]
+
+    min = None
+    max = None
+
+    for i in numbers:
+        if i > x:
+            x = i
+
+        elif i < y:
+            y = i
+            
+
+    return y, x
+
 
 
 if __name__ == "__main__":
