@@ -15,8 +15,24 @@ def pairwise_distances(points):
     """
     Return a list of (i, j, distance) triples for every unique pair i < j.
     """
-    pass
+ 
+    store = []
 
+    for i in range(len(points)):
+        for j in range(i+1,len(points)):
+                
+                p1 = points[i]
+                p2 = points[j]
+              
+                distance = math.sqrt(
+                    (p1[0] - p2[0])**2 +
+                    (p1[1] - p2[1])**2 +
+                    (p1[2] - p2[2])**2
+                )
+
+                store.append((i,j,distance))
+
+    return store
 
 if __name__ == "__main__":
     pts = [(0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0)]

@@ -12,8 +12,14 @@ def zip_pairs(labels, points):
     """
     Return a list of (label, point) tuples by zipping labels and points together.
     """
-    pass
 
+    store = []
+
+    for labels, points in zip(labels,points):
+        store.append((labels,points))
+    
+    #print(store)
+    return store
 
 if __name__ == "__main__":
     labels = ["cone_a", "cone_b", "cone_c"]

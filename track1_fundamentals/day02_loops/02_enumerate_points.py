@@ -11,8 +11,15 @@ def enumerate_points(points):
     """
     Return a list of strings formatted as "point {i}: {(x, y, z)}" for each point.
     """
-    pass
+    
+    store = []
 
+    for i, point in enumerate(points):
+            print(f"point {i}: {point}")
+            store.append(f"point {i}: {point}")
+    
+    return store
+    
 
 if __name__ == "__main__":
     pts = [(1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 1.0)]
@@ -23,3 +30,4 @@ if __name__ == "__main__":
         "point 2: (0.0, 0.0, 1.0)",
     ]
     print("PASS" if result == expected else f"FAIL — got {result}, expected {expected}")
+

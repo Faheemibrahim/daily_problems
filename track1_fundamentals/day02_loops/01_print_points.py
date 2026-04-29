@@ -13,7 +13,16 @@ def points_to_lines(points):
     Return a list of strings, one per point, formatted as "(x, y, z)".
     The caller can print them; this function returns the strings for testing.
     """
-    pass
+    # for point in points:
+    #     for i in point:
+    #         print(i)
+    # return i
+
+    store = [] 
+    for point in points:
+        print(point)
+        store.append(str(point))
+    return store 
 
 
 if __name__ == "__main__":

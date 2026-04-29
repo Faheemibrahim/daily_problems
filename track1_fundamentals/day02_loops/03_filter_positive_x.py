@@ -14,7 +14,18 @@ def filter_positive_x(points):
     Return a new list containing only the points where x > 0.
     Use a plain for loop.
     """
-    pass
+    
+    x = 0.0
+    store = []
+
+    for point in points:
+            if point[0] > x:
+                store.append(point)
+                
+            else:
+                continue
+    print(store)
+    return store
 
 
 if __name__ == "__main__":
