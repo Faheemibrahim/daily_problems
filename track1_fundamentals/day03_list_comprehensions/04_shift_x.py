@@ -12,7 +12,11 @@ def shift_x(points, delta=1.0):
     """
     Return a new list of tuples where each x has delta added to it.
     """
-    pass
+
+    store = [((point[0]+ delta),point[1],point[2]) for point in points]
+
+    return store 
+    
 
 
 if __name__ == "__main__":

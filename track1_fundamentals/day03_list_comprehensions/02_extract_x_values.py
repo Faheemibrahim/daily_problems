@@ -11,8 +11,12 @@ def extract_x(points):
     """
     Return a list of x values (floats) from a list of (x, y, z) tuples.
     """
-    pass
+    # just output and loop no need for condition
+    store = [point[0] for point in points]
 
+    print(store)
+
+    return store
 
 if __name__ == "__main__":
     pts = [(1.0, 2.0, 3.0), (4.0, 5.0, 6.0), (7.0, 8.0, 9.0)]

@@ -15,7 +15,9 @@ def filter_within_distance(points, radius=3.0):
     """
     Return points whose Euclidean distance from the origin is less than radius.
     """
-    pass
+    store = [point for point in points if math.sqrt(point[0]**2 + point[1]**2 + point[2]**2) < radius]
+
+    return store 
 
 
 if __name__ == "__main__":
@@ -27,5 +29,5 @@ if __name__ == "__main__":
         (0.0, 4.0, 0.0),
     ]
     result = filter_within_distance(pts)
-    expected = [(0.0, 0.0, 0.0), (1.0, 1.0, 1.0)]
+    expected = [(0.0, 0.0, 0.0), (1.0, 1.0, 1.0), (2.0, 2.0, 0.0)]
     print("PASS" if result == expected else f"FAIL — got {result}, expected {expected}")

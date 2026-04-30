@@ -11,8 +11,10 @@ def filter_negative_z(points):
     """
     Return a list of (x, y, z) tuples where z < 0.
     """
-    pass
+    store = [point for point in points if point[2] < 0]
+    print(store)
 
+    return store 
 
 if __name__ == "__main__":
     pts = [

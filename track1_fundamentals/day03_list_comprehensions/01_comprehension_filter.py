@@ -12,8 +12,10 @@ def filter_positive_x(points):
     """
     Return a new list of points where x > 0, using a list comprehension.
     """
-    pass
-
+    #[OUTPUT for ITEM in ITERABLE if CONDITION]
+    store = [point for point in points if point[0] > 0]
+    
+    return store 
 
 if __name__ == "__main__":
     pts = [
