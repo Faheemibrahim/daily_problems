@@ -12,7 +12,21 @@ def unpack_and_format(points):
     """
     Return a list of strings formatted as "x={x}, y={y}, z={z}" for each point.
     """
-    pass
+
+
+    store = []
+    
+    for x,y,z in points:
+        output = f"x={x}, y={y}, z={z}"
+
+        store.append(output)
+        
+        
+    
+    print(store)
+
+    return store
+
 
 
 if __name__ == "__main__":

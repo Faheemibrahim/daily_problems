@@ -13,8 +13,19 @@ def slice_points(points):
     Return a tuple of three lists:
       (first_3, last_3, every_other)
     """
-    pass
+    
+    first_3 = points[0:3]
+    print(first_3)
+    last_3 = points[(len(points)-3):len(points)]
+    print(last_3)
+    
+    every_other = points[0:len(points):2]
+    print(every_other)
 
+
+    return first_3, last_3, every_other
+    
+        
 
 if __name__ == "__main__":
     pts = [(float(i), 0.0, 0.0) for i in range(10)]

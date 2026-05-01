@@ -15,7 +15,26 @@ def sort_by_distance(points):
     """
     Return a new list of points sorted by Euclidean distance from the origin (ascending).
     """
-    pass
+
+    
+    # points.sort(key=lambda p: p[0]**2 + p[1]**2 + p[2]**2)
+
+    # print(points)
+
+
+    # return points 
+    
+
+    lst = sorted(points)
+
+    lst.sort(key=lambda p: p[0]**2 + p[1]**2 + p[2]**2)
+
+    print(lst)
+    print(points)
+
+
+    return lst
+    
 
 
 if __name__ == "__main__":

@@ -13,8 +13,45 @@ def flat_to_tuples(flat):
     """
     Convert a flat list of floats (length divisible by 3) into a list of (x, y, z) tuples.
     """
-    pass
 
+# first approach without llm i got it working 
+    # store = []
+
+    # for numbers in range(int(len(flat)/3)): # loop should run 3 times  
+        
+    #     # store the first 3 
+    #     print(flat[0:3])
+
+    #     tupe = tuple(flat[0:3])
+    #     store.append(tupe)
+
+    #     print(f"this is stored: {store} \n")
+
+    #     # after adding we are popping the first 3 elements 
+    #     flat.pop(2)
+    #     flat.pop(1)
+    #     flat.pop(0)
+
+    #     # reviewing the popped elements 
+    #     print(f"flat updated: {flat} \n")
+    #     print(f"final: {store}")
+    
+    # return store 
+
+# llm told me to correct my solution and use slicing lets give that a try 
+
+    store =[]
+
+    for i in range(0,len(flat),3): # this goes like 0,3,6 in terms of index so 0:[1.0] , 3:[4.0].... 
+
+        #print(f"{i}\n")
+
+        store.append(tuple(flat[i:i+3])) # from i to :i+1 as i is not included 
+    
+    print(store)
+    return store
+
+# idk its flowing natrually rn im happy  
 
 if __name__ == "__main__":
     flat = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0]

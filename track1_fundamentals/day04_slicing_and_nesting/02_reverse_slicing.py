@@ -12,7 +12,13 @@ def reverse_points(points):
     """
     Return a new list that is the reverse of points, using slicing.
     """
-    pass
+   
+    print(points[::-1])
+    return points[::-1]
+
+
+
+
 
 
 if __name__ == "__main__":
