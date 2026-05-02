@@ -6,7 +6,14 @@
 # Return True if 42 is in the list, False otherwise.
 
 def contains_42(lst):
-    pass
+    
+    for num in lst:
+       # print(num)
+        if num == 42:
+            return True
+    
+    return False
+
 
 print("W04-P1 PASS" if contains_42([1, 42, 3]) is True else "W04-P1 FAIL True case")
 print("W04-P1 PASS" if contains_42([1, 2, 3]) is False else "W04-P1 FAIL False case")
@@ -16,7 +23,14 @@ print("W04-P1 PASS" if contains_42([1, 2, 3]) is False else "W04-P1 FAIL False c
 # Using zip, return a list of (a, b) tuples from two lists of equal length.
 
 def zip_together(a, b):
-    pass
+    
+    # lst  = []
+    # for pair in zip(a,b):
+    #     lst.append(pair)
+    # print(lst)
+    # return lst\
+
+    return list(zip(a,b))
 
 r2 = zip_together([1, 2, 3], ["x", "y", "z"])
 print("W04-P2 PASS" if r2 == [(1, "x"), (2, "y"), (3, "z")] else f"W04-P2 FAIL — got {r2}")
@@ -26,7 +40,11 @@ print("W04-P2 PASS" if r2 == [(1, "x"), (2, "y"), (3, "z")] else f"W04-P2 FAIL �
 # Extract only the x (first) value from each (x, y, z) tuple — one comprehension.
 
 def extract_x(pts):
-    pass
+    
+    # lst  = [point[0] for point in pts]
+    # return lst
+
+    return [x for x, y ,z in pts ] 
 
 r3 = extract_x([(1.0, 2.0, 3.0), (4.0, 5.0, 6.0)])
 print("W04-P3 PASS" if r3 == [1.0, 4.0] else f"W04-P3 FAIL — got {r3}")
@@ -36,7 +54,7 @@ print("W04-P3 PASS" if r3 == [1.0, 4.0] else f"W04-P3 FAIL — got {r3}")
 # Return the first 3 elements of a list using slicing.
 
 def first_three(lst):
-    pass
+    return lst[0:3]
 
 r4 = first_three([10, 20, 30, 40, 50])
 print("W04-P4 PASS" if r4 == [10, 20, 30] else f"W04-P4 FAIL — got {r4}")
@@ -46,7 +64,7 @@ print("W04-P4 PASS" if r4 == [10, 20, 30] else f"W04-P4 FAIL — got {r4}")
 # Reverse a list using the [::-1] idiom — no .reverse().
 
 def reverse_list(lst):
-    pass
+    return lst[::-1]
 
 r5 = reverse_list([1, 2, 3, 4])
 print("W04-P5 PASS" if r5 == [4, 3, 2, 1] else f"W04-P5 FAIL — got {r5}")

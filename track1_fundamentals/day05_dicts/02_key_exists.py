@@ -13,14 +13,23 @@ def safe_lookup(d, key):
     Return the value for key if it exists, otherwise return None.
     Do not raise KeyError.
     """
-    pass
 
+    # key in d <- this checks if key is in Dict we can do ("A" in d : but that is hardcoded)
+    
+    
+    # use this if you dont care about the value because it will return none even if the value is set to none 
+    # this returns none if no value set so it does not crash the program 
+    return d.get(key)
+
+   
 
 def key_exists(d, key):
     """
     Return True if key is in d, False otherwise.
     """
-    pass
+     # Use key in d when you care whether the key exists
+    return key in d
+    
 
 
 if __name__ == "__main__":

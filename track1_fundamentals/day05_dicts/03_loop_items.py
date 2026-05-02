@@ -11,7 +11,19 @@ def format_dict(d):
     """
     Return a list of strings formatted as "key: value" for each item in d.
     """
-    pass
+
+    lst = []
+
+    for key,value in d.items():
+        print(f"{key}: {value}")
+        item = f"{key}: {value}"
+        lst.append(item)
+
+    print(lst)
+
+    return lst
+
+
 
 
 if __name__ == "__main__":

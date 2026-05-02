@@ -14,7 +14,62 @@ def group_by_quadrant(points):
     Return a dict with keys 'Q1', 'Q2', 'Q3', 'Q4', 'Q0' mapping to lists of points.
     Only include keys that have at least one point.
     """
-    pass
+
+    d = {
+
+    }
+    
+    for x,y,z in points:
+        #print(x,y,z)
+        
+        #q1
+        if x > 0 and y > 0:
+            key = "Q1"
+            if key in d:   # already created so append 
+                d[key].append((x,y,z))
+            else:
+                d[key] = [] 
+                d[key].append((x,y,z))
+        
+        #q2
+        elif x < 0 and y > 0:
+            key = "Q2"
+            if key in d:   # already created so append 
+                d[key].append((x,y,z))
+            else:
+                d[key] = [] 
+                d[key].append((x,y,z))
+
+        #q3
+        elif  x < 0 and y < 0:
+            key = "Q3"
+            if key in d:   # already created so append 
+                d[key].append((x,y,z))
+            else:
+                d[key] = [] 
+                d[key].append((x,y,z))
+
+        #q4
+        elif x > 0 and y < 0: 
+            key = "Q4"
+            if key in d:   # already created so append 
+                d[key].append((x,y,z))
+            else:
+                d[key] = [] 
+                d[key].append((x,y,z))
+        
+        else:
+            key = "Q0"
+            if key in d:   # already created so append 
+                d[key].append((x,y,z))
+            else:
+                d[key] = [] 
+                d[key].append((x,y,z))
+
+
+    print(d.items())
+    
+    return d 
 
 
 if __name__ == "__main__":

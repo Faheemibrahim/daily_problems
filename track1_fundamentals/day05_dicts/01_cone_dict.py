@@ -18,8 +18,27 @@ def build_cone_dict():
       - updating cone 'B' to (2.0, 2.0, 0.0)
       - deleting cone 'C'
     """
-    pass
+    cone = {
+        'A': (1.0, 0.0, 0.0), 
+        'B': (2.0, 1.0, 0.0), 
+        'C': (3.0, 0.0, 0.0)
+    }
 
+    print(f"initial: {cone}")
+
+    cone["D"] = (4.0, -1.0, 0.0)
+    print(cone)
+
+    # cone["B"] = (2.0, 2.0, 0.0)
+    cone.update({"B": (2.0, 2.0, 0.0)})
+    print(cone)
+
+    
+
+    del cone["C"]
+    print(f"final: {cone}")
+
+    return cone
 
 if __name__ == "__main__":
     result = build_cone_dict()

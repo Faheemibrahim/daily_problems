@@ -12,8 +12,23 @@ def count_per_quadrant(quadrant_dict):
     """
     Return a dict mapping each quadrant key to the number of points in it.
     """
-    pass
+    
+    # print(quadrant_dict)
 
+    d = {}
+
+    # VALUES give you the count and the items give you the quadrant 
+    for name,lst in quadrant_dict.items():
+        # print(name,lst)
+
+        
+        d[name] = len(lst)
+
+    return d
+
+
+
+        
 
 if __name__ == "__main__":
     q = {
