@@ -17,23 +17,73 @@ import math
 
 def label_points(points):
     """Return list of strings like 'point 0: (1.0, 2.0, 3.0)'."""
-    pass
+    lst = []
+    for idx, value in enumerate(points):
+         store = f"point {idx}: {value}"
+         lst.append(store)
+    
+    return lst
 
 
 def paired_distances(points_a, points_b):
     """Return list of distances between each paired point using zip."""
-    pass
+    lst = []
+
+    for points in zip(points_a,points_b):
+
+        point_a = points[0]
+        point_b = points[1]
+
+        if point_a > point_b:
+            distance = (point_a[0] - point_b[0]) + (point_a[1] - point_b[1]) + (point_a[2] - point_b[2])
+        else:
+            distance = (point_b[0] - point_a[0]) + (point_b[1] - point_a[1]) + (point_b[2] - point_a[2])
+
+        lst.append(distance)
+
+    return lst
 
 
 def closest_pair(points):
     """Return (p1, p2) the pair of distinct points with smallest distance."""
-    pass
+
+    prev_dist = math.inf
+
+    for i in range(len(points)):
+        for j in range(i+1,len(points)):
+
+            x1, y1, z1 = points[i]
+            x2, y2, z2 = points[j]
+
+            dx = x1 - x2
+            dy = y1 - y2
+            dz = z1 - z2
+
+            distance = (dx*dx + dy*dy + dz*dz) 
+  
+            if distance < prev_dist:
+                prev_dist = distance
+                final_p1 = points[i]
+                final_p2 = points[j]
+
+    
+    return final_p1, final_p2
+
 
 
 def index_to_distance(points):
     """Return dict where key=index, value=distance from origin."""
-    pass
+    
+    d ={}
 
+    for i,point in enumerate(points): 
+        x,y,z = point
+        distance  = (x + y + z)
+
+        d[i] = distance
+    
+    return d 
+    
 
 # -----------------------------------------------------------------------------
 if __name__ == "__main__":
