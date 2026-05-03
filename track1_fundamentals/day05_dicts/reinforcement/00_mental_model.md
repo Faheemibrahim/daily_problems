@@ -15,7 +15,7 @@ The value is WHAT you find.
     del d[key]                # DELETE
 
 ## The dict of lists pattern — the one that broke you:
-
+s
     groups = {}
     for item in items:
         key = decide_key(item)

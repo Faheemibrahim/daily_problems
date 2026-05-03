@@ -23,7 +23,28 @@ def build_cone_dict():
     key   = cone name string e.g. 'cone_1'
     value = (x, y, z) tuple
     """
-    pass
+    d = { 
+        "cone_1" : (1,2,3),
+        "cone_2" : (4,5,6),
+        "cone_3" : (7,8,9),
+        "cone_4" : (10,11,12),
+        "cone_5" : (13,14,15)
+    }
+
+    d["cone_2"] = (16,17,18)
+
+    del d["cone_4"]
+
+    if "cone_3" in d:
+        d["cone_3"] 
+
+    #debug
+
+    # print(d)
+    # print("done")
+
+    return d
+
 
 
 def loop_and_collect(cone_dict):
@@ -31,8 +52,16 @@ def loop_and_collect(cone_dict):
     Loop through cone_dict and return a list of strings
     formatted as 'cone_name: (x, y, z)' for each entry.
     """
-    pass
+    
+    lst = []
+    
+    for cone_name, key in cone_dict.items():
+        store = f"{cone_name}: {key}"
+        lst.append(store)
 
+    #print(lst)
+
+    return lst
 
 # -----------------------------------------------------------------------------
 if __name__ == "__main__":
