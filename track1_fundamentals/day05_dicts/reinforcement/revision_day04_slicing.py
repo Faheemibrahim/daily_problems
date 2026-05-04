@@ -16,27 +16,82 @@ import math
 
 def slice_sections(points):
     """Return dict with keys first4, last4, middle4."""
-    pass
+    
+    # create the keys 
+    d = {
+        "first4": None,
+        "last4": None,
+        "middle4": None
+    }
+
+    chunk = (len(points) // 3) 
+    
+    # print(points[0:chunk])
+    # print(points[chunk:2*chunk])
+    # print(points[2*chunk:])
+
+    # dynamic 
+    d["first4"] =  points[0:chunk]
+    d["middle4"] = points[chunk:2*chunk]
+    d["last4"] =  points[2*chunk:]
+
+
+   
+    
+    # print(points)
+    
+    # print(points[0:4])
+    # print(points[4:8])
+    # print(points[8:12])
+
+    # hard coded 
+    # d["first4"] = points[0:4]
+    # d["middle4"] = points[4:8]
+    # d["last4"] = points[8:12]
+    
+    return d
+
+
+    # just the dict 
+    #d ={}
+
+
+
+
+    return 
 
 
 def reverse_list(points):
     """Return reversed list using slicing only."""
-    pass
+    return points[::-1]
 
 
 def flat_to_tuples(flat):
     """Convert [x1,y1,z1,x2,y2,z2,...] to [(x1,y1,z1),(x2,y2,z2),...]."""
-    pass
+    
+    #print(flat[::3])
+    lst = []
+
+    for i in range(0,len(flat),3):
+        #print(flat[i:i+3])
+        lst.append(tuple(flat[i:i+3]))
+
+    return lst
 
 
 def sort_by_z(points):
     """Return points sorted by z ascending using sorted() with key."""
-    pass
+
+    return sorted(points, key=lambda p: p[2])
+    
+    
+        
 
 
 def sort_by_distance(points):
     """Return points sorted by distance from origin using sorted() with lambda."""
-    pass
+    
+    return sorted(points, key=lambda p: (p[0]+p[1]+p[2]))
 
 
 # -----------------------------------------------------------------------------

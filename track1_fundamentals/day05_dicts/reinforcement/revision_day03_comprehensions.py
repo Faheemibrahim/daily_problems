@@ -16,32 +16,31 @@ import math
 
 def extract_x(points):
     """Return list of all x values. One line."""
-    pass
+    return [point[0] for point in points]
 
 
 def negative_z(points):
     """Return points where z < 0. One line."""
-    pass
+    return [point for point in points if point[2] < 0]
 
 
 def distances_from_origin(points):
     """Return list of distances from origin for every point. One line."""
-    pass
+    
+    return [math.sqrt((x**2) + (y**2) + (z**2)) for x,y,z in points]
 
 
 def within_radius(points, radius):
     """Return points within given radius from origin. One line."""
-    pass
-
+    return [(x,y,z) for x,y,z in points if ((x**2) + (y**2) + (z**2)) < radius]
 
 def shift_points(points, dx, dy, dz):
     """Return new list with every point shifted by dx dy dz. One line."""
-    pass
-
+    return [(x+dx,y+dy,z+dz) for x,y,z in points]
 
 def index_distance_dict(points):
     """Return dict: key=index, value=distance from origin. One line."""
-    pass
+    return {key: math.sqrt((x**2) + (y**2) + (z**2))  for key, (x,y,z) in enumerate(points)}
 
 
 # -----------------------------------------------------------------------------
