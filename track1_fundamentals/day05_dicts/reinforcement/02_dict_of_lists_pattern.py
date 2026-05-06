@@ -25,27 +25,82 @@ def group_by_quadrant(points):
     value = list of points
     Return the groups dict.
     """
+    d ={
+        "Q1": [],
+        "Q2": [],
+        "Q3": [],
+        "Q4": [],
+    }
+
+    for point in points:
+
+        x,y,z = point 
+
+        if x>0 and y>0:
+            d["Q1"].append(point)
+
+        if x<0 and y>0:
+            d["Q2"].append(point)
+
+        if x<0 and y<0:
+            d["Q3"].append(point)
+        
+        if x>0 and y<0:
+            d["Q4"].append(point)
+
+    lst = []
+
+    for key,value in d:
+        store = f"{key}: {value}"
+        lst.append(store)
+    
+    #print(lst)
+
+    return d
+
     # key   =
     # value =
     # structure = { 'Q1': [(x,y,z), ...], 'Q2': [...], ... }
-    pass
+    
 
 
 def count_per_quadrant(groups):
     """
-    Given the groups dict return a new dict where
-    key   = quadrant name
-    value = count of points in that quadrant
+    Return the groups dict.
     """
-    # key   =
-    # value =
-    pass
 
+    lst = []
+
+    for key,item in groups.items():
+        print(key,len(item)) 
+        groups[key] = len(item)        
+    
+    return groups
+    
 
 def biggest_quadrant(counts):
     """Return the name of the quadrant with the most points."""
-    pass
 
+
+    prev_value = next(iter(counts.values())) # how do you assing the first key ? 
+
+    for key , value in counts.items():
+        print(key, value)
+        if value > prev_value:
+            final_key = key
+            prev_value = value
+    
+
+    return final_key
+
+    # # return final_key
+    # print("big_leagues")
+    # print(next(iter(counts.items())))
+    # print(counts)
+    
+
+    
+            
 
 # -----------------------------------------------------------------------------
 if __name__ == "__main__":
