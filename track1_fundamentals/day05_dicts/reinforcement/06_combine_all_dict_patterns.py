@@ -20,7 +20,8 @@ import math
 
 def filter_points(points, x_range=5.0, y_range=5.0):
     """Return only points where -x_range < x < x_range and same for y."""
-    pass
+    
+    return [point for point in points if - x_range < point[0] < x_range and - y_range < point[1] < y_range]
 
 
 def full_pipeline(raw_points):
@@ -42,8 +43,101 @@ def full_pipeline(raw_points):
     """
     # key   =
     # value = { 'count': , 'centroid': , 'closest': }
-    pass
+    
+    groups = {
+            "Q1": [],
+            "Q2": [],
+            "Q3": [],
+            "Q4": []
+        }
 
+    for point in filtered:
+
+        x, y, z = point
+
+        if x > 0 and y > 0:
+            groups["Q1"].append(point)
+
+        elif x < 0 and y > 0:
+            groups["Q2"].append(point)
+
+        elif x < 0 and y < 0:
+            groups["Q3"].append(point)
+
+        elif x > 0 and y < 0:
+            groups["Q4"].append(point)
+
+    # ---------------------------------------------------------
+    # STEP 3 — COMPUTE STATS PER QUADRANT
+    # key   = quadrant name
+    # value = {
+    #   'count': int,
+    #   'centroid': tuple,
+    #   'closest': tuple
+    # }
+    # ---------------------------------------------------------
+    results = {}
+
+    for quadrant, pts in groups.items():
+
+        # empty quadrant
+        if len(pts) == 0:
+
+            results[quadrant] = {
+                "count": 0,
+                "centroid": (),
+                "closest": ()
+            }
+
+            continue
+
+        # ---------------------------
+        # count
+        # ---------------------------
+        count = len(pts)
+
+        # ---------------------------
+        # centroid
+        # ---------------------------
+        sum_x = sum(p[0] for p in pts)
+        sum_y = sum(p[1] for p in pts)
+        sum_z = sum(p[2] for p in pts)
+
+        centroid = (
+            sum_x / count,
+            sum_y / count,
+            sum_z / count
+        )
+
+        # ---------------------------
+        # closest point to origin
+        # ---------------------------
+        closest = min(
+            pts,
+            key=lambda p: (
+                p[0]**2 +
+                p[1]**2 +
+                p[2]**2
+            )
+        )
+
+        # store results
+        results[quadrant] = {
+            "count": count,
+            "centroid": centroid,
+            "closest": closest
+        }
+
+    # ---------------------------------------------------------
+    # STEP 4 — FIND BIGGEST QUADRANT
+    # ---------------------------------------------------------
+    biggest = max(
+        results,
+        key=lambda q: results[q]["count"]
+    )
+
+    return results, biggest
+            
 
 # -----------------------------------------------------------------------------
 if __name__ == "__main__":

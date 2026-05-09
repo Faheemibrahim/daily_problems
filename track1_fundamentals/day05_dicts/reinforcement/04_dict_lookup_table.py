@@ -24,7 +24,24 @@ def build_lookup(points, grid_size=0.5):
     """
     # key   =
     # value =
-    pass
+    
+    d = {
+
+    }
+
+    for point in points:
+        x,y,z = point
+
+        vx = math.floor(x / grid_size)
+        vy = math.floor(y / grid_size)
+
+        if (vx, vy) not in d:
+            d[(vx, vy)] = []
+
+        d[vx,vy].append(point)
+
+    return d
+
 
 
 def lookup_query(lookup_dict, query_point, grid_size=0.5):
@@ -32,7 +49,17 @@ def lookup_query(lookup_dict, query_point, grid_size=0.5):
     Return all points in the same grid cell as query_point.
     This should be O(1) — one dict lookup.
     """
-    pass
+
+    
+    x, y, z = query_point
+        
+    vx = math.floor(x / grid_size)
+    vy = math.floor(y / grid_size)
+
+    return lookup_dict.get((vx,vy))
+    
+
+    
 
 
 def brute_force_query(points, query_point, grid_size=0.5):
@@ -40,15 +67,60 @@ def brute_force_query(points, query_point, grid_size=0.5):
     Return all points in same grid cell as query_point.
     This is O(n) — checks every point.
     """
-    pass
+    
+    #key is query point
+    x, y, z = query_point
+    vx = math.floor(x / grid_size)
+    vy = math.floor(y / grid_size)
+
+    lst =[]
 
 
+    query_cell = (vx,vy)
+
+    # use the key to find the points 
+    for point in points:
+        if query_cell == (math.floor(point[0] / grid_size),math.floor(point[1] / grid_size)):
+            lst.append(point)
+
+    return lst
+
+        
 def compare_timing(points, query_point, grid_size=0.5):
     """
     Time both approaches for 1000 queries.
     Return dict with keys 'brute_force_seconds' and 'lookup_seconds'.
     """
-    pass
+
+    # method 1 
+    start = time.time()
+
+    for _ in range(1000):
+        brute_force_query(points, query_point, grid_size)
+
+    end = time.time()
+
+    brute_time = end - start
+
+    start = time.time()
+
+    # method 2 
+
+    for _ in range(1000):
+        lookup_query(lookup, query_point, grid_size)
+
+    end = time.time()
+
+    lookup_time = end - start
+
+
+        # return both timings
+    return {
+        "brute_force_seconds": brute_time,
+        "lookup_seconds": lookup_time
+    }
+
+
 
 
 # -----------------------------------------------------------------------------
