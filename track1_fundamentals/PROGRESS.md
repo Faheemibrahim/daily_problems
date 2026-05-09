@@ -5,8 +5,8 @@
 | 01  | Lists and Indexing | [✔] | [✔] |
 | 02  | Loops | [✔] | [✔] |
 | 03  | List Comprehensions | [✔] | [✔] |
-| 04  | Slicing and Nesting | [✔] | [ ] |
-| 05  | Dicts | [ ] | [ ] |
+| 04  | Slicing and Nesting | [✔] | [✔] |
+| 05  | Dicts | [✔] | [✔] |
 | 06  | Dicts Spatial | [ ] | [ ] |
 | 07  | Sets | [ ] | [ ] |
 | 08  | Functions | [ ] | [ ] |
