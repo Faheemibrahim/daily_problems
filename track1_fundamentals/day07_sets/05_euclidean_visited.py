@@ -16,7 +16,17 @@ def process_unvisited(points):
     Return the list of points in the order they were first visited,
     where a point is considered a duplicate if an identical (x, y, z) was seen before.
     """
-    pass
+    
+    visited = set()
+    result = []
+
+    for point in points:
+
+        if point not in visited:
+            visited.add(point)
+            result.append(point)
+
+    return result
 
 
 if __name__ == "__main__":

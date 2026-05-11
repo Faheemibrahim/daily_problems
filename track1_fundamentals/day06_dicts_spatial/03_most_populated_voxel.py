@@ -8,13 +8,23 @@
 #   [ ] All test cases print PASS
 # Hint: max(d, key=lambda k: len(d[k])) finds the key whose value list is longest.
 
+import math 
 
 def most_populated_voxel(voxel_dict):
     """
     Return the voxel key (vx, vy, vz) that has the most points in its list.
     """
-    pass
 
+    current = - math.inf
+    final = None
+
+    for key, values in voxel_dict.items():
+         #print(len(values))
+        if len(values) > current:
+            current = len(values)
+            final = key
+
+    return final 
 
 if __name__ == "__main__":
     vd = {

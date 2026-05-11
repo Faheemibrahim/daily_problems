@@ -13,7 +13,13 @@ def common_indices(list_a, list_b):
     """
     Return the set of indices that appear in both list_a and list_b.
     """
-    pass
+    set_a = set(list_a)
+    set_b = set(list_b)
+
+    print(set_a & set_b)
+
+    return set_a & set_b
+    
 
 
 if __name__ == "__main__":

@@ -16,7 +16,21 @@ def build_voxel_dict(points, voxel_size=0.5):
     """
     Return a dict mapping (vx, vy, vz) voxel keys to lists of (x, y, z) points.
     """
-    pass
+    voxel_dict = {}
+    for point in points:
+        x,y,z = point
+
+        vx = math.floor(x / voxel_size)
+        vy = math.floor(y / voxel_size)
+        vz = math.floor(z / voxel_size)
+
+        # voxel_dict.setdefault((vx, vy, vz), []).append(point)
+
+        if (vx, vy, vz) not in voxel_dict:
+            voxel_dict[(vx, vy, vz)] = []
+        voxel_dict[(vx, vy, vz)].append(point)
+
+    return voxel_dict
 
 
 if __name__ == "__main__":

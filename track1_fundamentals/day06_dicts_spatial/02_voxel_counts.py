@@ -7,12 +7,18 @@
 #   [ ] All test cases print PASS
 # Hint: This is the same pattern as day05 problem 05, just applied to spatial data.
 
+from collections import defaultdict
 
 def voxel_counts(voxel_dict):
     """
     Return a dict mapping each voxel key to the number of points in that cell.
     """
-    pass
+    d = {}
+
+    for key,value in voxel_dict.items():
+        d[key] = len(value)
+    
+    return d
 
 
 if __name__ == "__main__":

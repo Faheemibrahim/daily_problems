@@ -15,7 +15,18 @@ def simulate_visited(indices):
     Return (visited_set, processing_order) where processing_order is the
     list of indices in the order they were first seen.
     """
-    pass
+    visited = set()
+    processing_order = []
+
+    for idx in indices:
+
+        if idx not in visited:
+            visited.add(idx)
+            processing_order.append(idx)
+            print(f"Processing index {idx} — visited so far: {visited}")
+
+    return visited, processing_order
+
 
 
 if __name__ == "__main__":

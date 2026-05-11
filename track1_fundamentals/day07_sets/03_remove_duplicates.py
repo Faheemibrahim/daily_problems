@@ -13,7 +13,8 @@ def remove_duplicates(points):
     """
     Return a sorted list of unique (x, y, z) tuples from points.
     """
-    pass
+    return sorted(set(points))
+
 
 
 if __name__ == "__main__":

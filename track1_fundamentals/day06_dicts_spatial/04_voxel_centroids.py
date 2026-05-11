@@ -13,7 +13,19 @@ def voxel_centroids(voxel_dict):
     """
     Return a dict mapping each voxel key to its centroid (mean_x, mean_y, mean_z).
     """
-    pass
+    
+    d = {}
+
+    for key, value in voxel_dict.items():
+        x_sum = sum(p[0] for p in value)
+        y_sum = sum(p[1] for p in value)
+        z_sum = sum(p[2] for p in value)
+
+        n = len(value)
+
+        d[key] = (x_sum / n, y_sum / n, z_sum / n)
+
+    return d
 
 
 if __name__ == "__main__":
