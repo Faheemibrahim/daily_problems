@@ -14,15 +14,26 @@ class BoundingBox:
     """Axis-aligned bounding box in 3D."""
 
     def __init__(self, x_min, x_max, y_min, y_max, z_min, z_max):
-        pass
+        self.x_min = x_min
+        self.x_max = x_max
+        self.y_min = y_min
+        self.y_max = y_max
+        self.z_min = z_min
+        self.z_max = z_max
 
     def contains(self, point):
         """Return True if (x, y, z) tuple point is inside this bounding box (inclusive)."""
-        pass
+        x, y, z = point
+        return (self.x_min <= x <= self.x_max and
+                self.y_min <= y <= self.y_max and
+                self.z_min <= z <= self.z_max)
 
     def dimensions(self):
         """Return (width, depth, height) as a tuple."""
-        pass
+        width = self.x_max - self.x_min
+        depth = self.y_max - self.y_min
+        height = self.z_max - self.z_min
+        return (width, depth, height)
 
 
 if __name__ == "__main__":

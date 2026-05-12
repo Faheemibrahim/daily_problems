@@ -16,7 +16,9 @@ def distance(p1, p2):
     Return the Euclidean distance between two 3D points p1 and p2.
     Each point is a (x, y, z) tuple.
     """
-    pass
+    x1, y1, z1 = p1
+    x2, y2, z2 = p2
+    return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2 + (z2 - z1) ** 2)
 
 
 if __name__ == "__main__":

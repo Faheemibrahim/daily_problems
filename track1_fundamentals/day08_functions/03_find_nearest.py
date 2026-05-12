@@ -19,7 +19,17 @@ def find_nearest(query, points):
     """
     Return the (x, y, z) point in points that is closest to query.
     """
-    pass
+
+    for p in points:
+        d = distance(query, p)
+        #first iteration they are the same 
+        if p == points[0]:
+            min_d = d
+            nearest = p
+        elif d < min_d:
+            min_d = d
+            nearest = p
+    return nearest
 
 
 if __name__ == "__main__":

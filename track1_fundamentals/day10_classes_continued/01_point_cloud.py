@@ -30,23 +30,32 @@ class PointCloud:
     """A collection of 3D points with spatial operations."""
 
     def __init__(self):
-        pass
+        self.points = []
 
     def add(self, point):
         """Append a (x, y, z) tuple to this cloud."""
-        pass
+        self.points.append(point)
 
     def size(self):
         """Return the number of points."""
-        pass
+        return len(self.points)
 
     def centroid(self):
         """Return (mean_x, mean_y, mean_z) of all points."""
-        pass
+        sum_x = sum(p[0] for p in self.points)
+        sum_y = sum(p[1] for p in self.points)
+        sum_z = sum(p[2] for p in self.points)
+        n = len(self.points)
+        return (sum_x / n, sum_y / n, sum_z / n)
 
     def filter_by_box(self, bbox):
         """Return a new PointCloud containing only points inside bbox."""
-        pass
+        filtered = PointCloud()
+        for p in self.points:
+            if bbox.contains(p):
+                filtered.add(p)
+
+        return filtered
 
 
 if __name__ == "__main__":

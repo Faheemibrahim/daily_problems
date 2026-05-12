@@ -27,19 +27,29 @@ class Cluster:
     """A labelled group of 3D points representing one detected object."""
 
     def __init__(self, points=None):
-        pass
+        self.points = points if points is not None else []
 
     def size(self):
         """Return number of points."""
-        pass
+        return len(self.points)
 
     def centroid(self):
         """Return (mean_x, mean_y, mean_z)."""
-        pass
+        sum_x = sum(p[0] for p in self.points)
+        sum_y = sum(p[1] for p in self.points)
+        sum_z = sum(p[2] for p in self.points)
+        n = len(self.points)
+        return (sum_x / n, sum_y / n, sum_z / n)
 
     def bounding_box(self):
         """Return a BoundingBox that tightly fits all points in this cluster."""
-        pass
+        x_min = min(p[0] for p in self.points)
+        x_max = max(p[0] for p in self.points)
+        y_min = min(p[1] for p in self.points)
+        y_max = max(p[1] for p in self.points)
+        z_min = min(p[2] for p in self.points)
+        z_max = max(p[2] for p in self.points)
+        return BoundingBox(x_min, x_max, y_min, y_max, z_min, z_max)
 
 
 if __name__ == "__main__":

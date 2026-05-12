@@ -14,7 +14,15 @@ def filter_points(points, z_min=-0.5, z_max=0.3, x_range=5.0, y_range=5.0):
     """
     Return points that fall within the specified bounding region.
     """
-    pass
+
+    lst = []
+    for p in points:
+        x,y,z = p 
+
+        if z_min <= z <= z_max and abs(x) <= x_range and abs(y) <= y_range:
+            lst.append(p)
+
+    return lst
 
 
 if __name__ == "__main__":
@@ -31,5 +39,5 @@ if __name__ == "__main__":
 
     # custom bounds
     result2 = filter_points(pts, z_min=0.0, z_max=0.5, x_range=10.0, y_range=10.0)
-    expected2 = [(0.0, 0.0, 0.0), (4.9, 4.9, 0.1)]
+    expected2 = [(0.0, 0.0, 0.0) , (6.0, 0.0, 0.0),  (4.9, 4.9, 0.1)]
     print("PASS custom" if result2 == expected2 else f"FAIL custom — got {result2}")

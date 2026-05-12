@@ -13,7 +13,11 @@ def centroid(points):
     """
     Return the centroid of a list of (x, y, z) tuples as a (mean_x, mean_y, mean_z) tuple.
     """
-    pass
+    sum_x = sum(p[0] for p in points)
+    sum_y = sum(p[1] for p in points)
+    sum_z = sum(p[2] for p in points)
+    n = len(points)
+    return (sum_x / n, sum_y / n, sum_z / n)
 
 
 if __name__ == "__main__":

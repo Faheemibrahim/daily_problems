@@ -16,14 +16,16 @@ class Point3D:
     """A point in 3D space."""
 
     def __init__(self, x, y, z):
-        pass
+        self.x = x
+        self.y = y
+        self.z = z
 
     def distance_to(self, other):
         """Return Euclidean distance from self to other."""
-        pass
+        return math.sqrt((other.x - self.x) ** 2 + (other.y - self.y) ** 2 + (other.z - self.z) ** 2)
 
     def __repr__(self):
-        pass
+        return f"Point3D(x={self.x}, y={self.y}, z={self.z})"
 
 
 if __name__ == "__main__":

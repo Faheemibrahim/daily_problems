@@ -14,7 +14,10 @@ def apply_to_all(points, func):
     """
     Apply func to every element in points and return the results as a list.
     """
-    pass
+    lst = []
+    for p in points:
+        lst.append(func(p))
+    return lst
 
 
 if __name__ == "__main__":
