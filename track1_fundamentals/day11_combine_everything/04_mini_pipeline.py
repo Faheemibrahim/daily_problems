@@ -17,7 +17,28 @@ def mini_pipeline(raw_points, z_min=-0.5, z_max=0.3, x_range=5.0, y_range=5.0, v
     Filter -> deduplicate -> voxelise -> downsample.
     Return a list of (x, y, z) centroids, one per voxel cell.
     """
-    pass
+    #filter 
+    filtered = [p for p in raw_points if z_min <= p[2] <= z_max and abs(p[0]) <= x_range and abs(p[1]) <= y_range]
+
+    #deduplicate
+    visited = set(filtered)
+
+    #voxelise
+    vd = {}
+    for p in visited:
+        key = (int(p[0] // voxel_size), int(p[1] // voxel_size), int(p[2] // voxel_size))
+        vd.setdefault(key, []).append(p)
+    
+    #downsample
+    result = []
+    for key, points in vd.items():
+        n = len(points)
+        mean_x = sum(p[0] for p in points) / n
+        mean_y = sum(p[1] for p in points) / n
+        mean_z = sum(p[2] for p in points) / n
+        result.append((mean_x, mean_y, mean_z))
+    
+    return result
 
 
 if __name__ == "__main__":

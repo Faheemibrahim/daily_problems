@@ -15,7 +15,8 @@ def to_numpy(points):
     """
     Convert a list of (x, y, z) tuples to a numpy array of shape (N, 3).
     """
-    pass
+    np.array(points)
+    return np.array(points)
 
 
 if __name__ == "__main__":

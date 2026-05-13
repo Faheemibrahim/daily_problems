@@ -14,7 +14,9 @@ def extract_x(arr):
     """
     Return a 1D numpy array of all x values from a (N, 3) array.
     """
-    pass
+    print(arr[:,1])
+    return arr[:, 0]
+
 
 
 if __name__ == "__main__":

@@ -31,8 +31,11 @@ def nearest_large_cluster(clusters, min_size=5):
     Return the Cluster with size >= min_size whose centroid is nearest to the origin.
     Return None if no clusters meet the size requirement.
     """
-    pass
 
+    clusters = [cl for cl in clusters if cl.size() >= min_size]
+    if not clusters:
+        return None
+    return min(clusters, key=lambda cl: math.sqrt(cl.centroid()[0]**2 + cl.centroid()[1]**2 + cl.centroid()[2]**2))
 
 if __name__ == "__main__":
     c1 = Cluster([(1.0, 0.0, 0.0)] * 6)   # size 6, centroid (1,0,0)

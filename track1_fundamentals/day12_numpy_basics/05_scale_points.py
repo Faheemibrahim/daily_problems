@@ -14,7 +14,7 @@ def scale(arr, factor):
     """
     Return a new array with every point scaled by factor.
     """
-    pass
+    return np.array(arr) * factor
 
 
 if __name__ == "__main__":

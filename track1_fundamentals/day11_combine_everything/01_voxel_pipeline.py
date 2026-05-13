@@ -31,8 +31,20 @@ def voxel_pipeline(raw_points, voxel_size=0.5):
     Filter raw_points, group into voxels, and return a dict of
     voxel_key -> centroid (mean_x, mean_y, mean_z).
     """
-    pass
+    
+    d = {}
+   
 
+    filtered = filter_points(raw_points)
+    voxels = build_voxel_dict(filtered, voxel_size)
+    for key, points in voxels.items():
+        n = len(points)
+        mean_x = sum(p[0] for p in points) / n
+        mean_y = sum(p[1] for p in points) / n
+        mean_z = sum(p[2] for p in points) / n
+        d[key] = (mean_x, mean_y, mean_z)
+
+    return d
 
 if __name__ == "__main__":
     raw = [

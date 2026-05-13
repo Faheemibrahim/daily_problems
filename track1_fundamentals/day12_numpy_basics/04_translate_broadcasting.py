@@ -15,7 +15,7 @@ def translate(arr, offset):
     Add offset (a 1D array of shape (3,)) to every row of arr (shape (N, 3)).
     Return the translated array — no loop.
     """
-    pass
+    return arr + np.array(offset)
 
 
 if __name__ == "__main__":

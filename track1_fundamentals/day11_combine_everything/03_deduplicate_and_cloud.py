@@ -31,7 +31,11 @@ def deduplicate_and_centroid(raw_points):
     """
     Remove duplicate points using a set, build a PointCloud, and return its centroid.
     """
-    pass
+    visited = set(raw_points)
+    pc = PointCloud()
+    for point in visited:
+        pc.add(point)
+    return pc.centroid()
 
 
 if __name__ == "__main__":

@@ -15,7 +15,9 @@ def centroid_numpy(arr):
     Return the centroid of a (N, 3) numpy array as a 1D array of shape (3,).
     Use np.mean with the axis argument — one line.
     """
-    pass
+    np.array(arr)
+    print(np.mean(arr, axis=1))
+    return np.mean(arr, axis=0)
 
 
 if __name__ == "__main__":
