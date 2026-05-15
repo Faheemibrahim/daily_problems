@@ -15,7 +15,10 @@ def filter_z_positive(arr):
     """
     Return rows of arr where z (column 2) > 0, using a boolean mask.
     """
-    pass
+    print(arr)
+    mask = arr[:, 2] > 0 
+    print(mask)
+    return arr[mask]
 
 
 if __name__ == "__main__":

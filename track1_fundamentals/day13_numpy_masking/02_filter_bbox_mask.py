@@ -15,7 +15,16 @@ def filter_bbox(arr, x_min, x_max, y_min, y_max, z_min, z_max):
     """
     Return rows of arr inside the given bounding box using combined boolean masks.
     """
-    pass
+    mask_x = (arr[:, 0] >= x_min) & (arr[:, 0] <= x_max)
+    mask_y = (arr[:, 1] >= y_min) & (arr[:, 1] <= y_max)
+    mask_z = (arr[:, 2] >= z_min) & (arr[:, 2] <= z_max)
+    combined_mask = mask_x & mask_y & mask_z
+    print("mask_x:", mask_x)
+    print("mask_y:", mask_y)
+    print("mask_z:", mask_z)
+    print("combined_mask:", combined_mask)
+    print(arr[combined_mask])
+    return arr[combined_mask]
 
 
 if __name__ == "__main__":

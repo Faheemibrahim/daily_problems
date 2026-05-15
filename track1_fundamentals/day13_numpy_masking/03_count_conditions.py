@@ -16,7 +16,23 @@ def count_in_region(arr, x_min, x_max, z_min, z_max):
     """
     Count rows where x is in [x_min, x_max] AND z is in [z_min, z_max].
     """
-    pass
+    print(arr)
+    mask_x = (arr[:, 0] >= x_min) & (arr[:, 0] <= x_max)
+    mask_z = (arr[:, 2] >= z_min) & (arr[:, 2] <= z_max)
+    combined_mask = mask_x & mask_z
+    print("mask_x:", mask_x)
+    print("mask_z:", mask_z)
+    print("combined_mask:", combined_mask)  
+    print(arr[mask_x])
+    print()
+    print(arr[mask_z])
+    print() 
+    print(arr[combined_mask])
+    print()
+    print(np.sum(mask_x))
+    print(np.sum(mask_z))
+    print(np.sum(combined_mask))
+    return np.sum(combined_mask)
 
 
 if __name__ == "__main__":

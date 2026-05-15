@@ -19,7 +19,15 @@ def lidar_filter(arr, z_min=-0.5, z_max=0.3, xy_range=5.0):
     Return rows of arr where z ∈ [z_min, z_max] and |x| <= xy_range and |y| <= xy_range.
     No Python loops.
     """
-    pass
+    mask_z = (arr[:,2]>= z_min) & (arr[:,2] <= z_max)
+    mask_xy = (np.abs(arr[:,0]) <= xy_range) & (np.abs(arr[:,1]) <= xy_range)
+    combined_mask = mask_z & mask_xy
+    print("mask_z:", mask_z)
+    print("mask_xy:", mask_xy)
+    print("combined_mask:", combined_mask)
+    print(arr[combined_mask])
+    print(np.sum(combined_mask))
+    return arr[combined_mask]
 
 
 if __name__ == "__main__":
