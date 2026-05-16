@@ -15,7 +15,9 @@ def k_nearest(arr, query, k=5):
     """
     Return the k nearest points to query as a (k, 3) numpy array, sorted nearest-first.
     """
-    pass
+    distances = np.linalg.norm(arr - query, axis=1)
+    sorted_idx = np.argsort(distances)
+    return arr[sorted_idx[:k]]
 
 
 if __name__ == "__main__":

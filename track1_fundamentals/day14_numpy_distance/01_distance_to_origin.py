@@ -14,7 +14,7 @@ def distances_to_origin(arr):
     """
     Return a 1D array of Euclidean distances from each point (row) to the origin.
     """
-    pass
+    return np.linalg.norm(arr, axis=1)
 
 
 if __name__ == "__main__":

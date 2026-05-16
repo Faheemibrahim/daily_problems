@@ -15,7 +15,8 @@ def nearest_index(arr, query):
     """
     Return the integer index of the point in arr closest to query.
     """
-    pass
+    distance = np.linalg.norm(arr - query, axis=1)
+    return np.argmin(distance)
 
 
 if __name__ == "__main__":

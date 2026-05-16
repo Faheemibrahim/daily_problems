@@ -16,14 +16,14 @@ def distances_to_query(arr, query):
     Return a 1D array of distances from each point in arr to the query point.
     query is a 1D array of shape (3,).
     """
-    pass
+    return np.linalg.norm(arr - query, axis=1)
 
 
 if __name__ == "__main__":
     arr = np.array([[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [4.0, 3.0, 0.0]])
     query = np.array([1.0, 0.0, 0.0])
     result = distances_to_query(arr, query)
-    expected = np.array([1.0, 0.0, 5.0])
+    expected = np.array([1.0, 0.0, 4.24264069])
 
     print("PASS shape" if result.shape == (3,) else f"FAIL shape — {result.shape}")
     print("PASS values" if np.allclose(result, expected) else f"FAIL values — {result}")

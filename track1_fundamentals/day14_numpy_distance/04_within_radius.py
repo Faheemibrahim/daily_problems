@@ -15,7 +15,7 @@ def within_radius(arr, query, radius):
     """
     Return a 1D array of indices of points in arr within radius of query.
     """
-    pass
+    return np.where(np.linalg.norm(arr - query, axis=1) < radius)[0]
 
 
 if __name__ == "__main__":
