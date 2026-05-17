@@ -9,7 +9,8 @@ import math
 # Return elements in A that are in neither B nor C.
 
 def only_in_a(a, b, c):
-    pass
+    visited = set(b) | set(c)
+    return {x for x in a if x not in visited}
 
 r1 = only_in_a([1, 2, 3, 4], [2, 3], [3, 4])
 print("W09-P1 PASS" if r1 == {1} else f"W09-P1 FAIL — got {r1}")
@@ -19,7 +20,11 @@ print("W09-P1 PASS" if r1 == {1} else f"W09-P1 FAIL — got {r1}")
 # Given a list of (x, y, z) points, return their centroid using a function you write.
 
 def centroid(pts):
-    pass
+    x_sum = sum(x for x, y, z in pts)
+    y_sum = sum(y for x, y, z in pts)
+    z_sum = sum(z for x, y, z in pts)
+    n = len(pts)
+    return (x_sum / n, y_sum / n, z_sum / n)
 
 r2 = centroid([(0.0, 0.0, 0.0), (4.0, 0.0, 0.0)])
 print("W09-P2 PASS" if r2 == (2.0, 0.0, 0.0) else f"W09-P2 FAIL — got {r2}")
@@ -30,9 +35,11 @@ print("W09-P2 PASS" if r2 == (2.0, 0.0, 0.0) else f"W09-P2 FAIL — got {r2}")
 
 class Point3D:
     def __init__(self, x, y, z):
-        pass
+        self.x = x
+        self.y = y
+        self.z = z
     def distance_to(self, other):
-        pass
+        return math.hypot(self.x - other.x, self.y - other.y, self.z - other.z)
     def __repr__(self):
         return f"Point3D(x={self.x}, y={self.y}, z={self.z})"
 
@@ -46,7 +53,10 @@ print("W09-P3 PASS repr" if repr(p2) == "Point3D(x=3.0, y=4.0, z=0.0)" else f"W0
 # Create two points and return the one closer to the origin.
 
 def closer_to_origin(p1, p2):
-    pass
+    if p1.distance_to(origin) < p2.distance_to(origin):
+        return p1
+    else:
+        return p2
 
 origin = Point3D(0.0, 0.0, 0.0)
 pa = Point3D(1.0, 0.0, 0.0)
@@ -59,7 +69,7 @@ print("W09-P4 PASS" if r4 is pa else f"W09-P4 FAIL — got {r4}")
 # Given a list of Point3D objects, return a dict mapping index -> Point3D.
 
 def index_dict(points):
-    pass
+    return {i: point for i, point in enumerate(points)}
 
 pts5 = [Point3D(1.0, 0.0, 0.0), Point3D(2.0, 0.0, 0.0)]
 r5 = index_dict(pts5)

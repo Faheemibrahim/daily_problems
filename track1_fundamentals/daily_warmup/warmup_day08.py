@@ -6,7 +6,15 @@
 # Group points into dict {"pos": [...], "neg": [...], "zero": [...]} by sign of x.
 
 def group_by_sign(pts):
-    pass
+    result = {"pos": [], "neg": [], "zero": []}
+    for x, y, z in pts:
+        if x > 0:
+            result["pos"].append((x, y, z))
+        elif x < 0:
+            result["neg"].append((x, y, z))
+        else:
+            result["zero"].append((x, y, z))
+    return result
 
 r1 = group_by_sign([(1.0, 0.0, 0.0), (-1.0, 0.0, 0.0), (0.0, 0.0, 0.0), (2.0, 0.0, 0.0)])
 print("W08-P1 PASS" if len(r1["pos"]) == 2 and len(r1["neg"]) == 1 and len(r1["zero"]) == 1
@@ -17,7 +25,9 @@ print("W08-P1 PASS" if len(r1["pos"]) == 2 and len(r1["neg"]) == 1 and len(r1["z
 # Return elements in list a that are NOT in list b.
 
 def in_a_not_b(a, b):
-    pass
+
+    visited = set(b)
+    return {x for x in a if x not in visited}
 
 r2 = in_a_not_b([1, 2, 3, 4], [3, 4, 5])
 print("W08-P2 PASS" if r2 == {1, 2} else f"W08-P2 FAIL — got {r2}")
@@ -27,7 +37,7 @@ print("W08-P2 PASS" if r2 == {1, 2} else f"W08-P2 FAIL — got {r2}")
 # Write clamp(value, lo=0.0, hi=1.0) that clamps value to [lo, hi].
 
 def clamp(value, lo=0.0, hi=1.0):
-    pass
+    return max(lo, min(value, hi))
 
 print("W08-P3 PASS" if clamp(0.5) == 0.5 else f"W08-P3 FAIL mid — {clamp(0.5)}")
 print("W08-P3 PASS" if clamp(-1.0) == 0.0 else f"W08-P3 FAIL low — {clamp(-1.0)}")
@@ -39,7 +49,7 @@ print("W08-P3 PASS" if clamp(5.0, lo=0.0, hi=10.0) == 5.0 else f"W08-P3 FAIL cus
 # Return both the min and max of a list as a tuple (min_val, max_val).
 
 def min_and_max(numbers):
-    pass
+    return (min(numbers), max(numbers))
 
 r4 = min_and_max([3, 1, 4, 1, 5, 9])
 print("W08-P4 PASS" if r4 == (1, 9) else f"W08-P4 FAIL — got {r4}")
@@ -49,7 +59,7 @@ print("W08-P4 PASS" if r4 == (1, 9) else f"W08-P4 FAIL — got {r4}")
 # Use clamp() inside a comprehension to clamp every value in a list to [0.0, 1.0].
 
 def clamp_all(values):
-    pass
+    return [clamp(x) for x in values]
 
 r5 = clamp_all([-0.5, 0.3, 1.5, 0.8])
 print("W08-P5 PASS" if r5 == [0.0, 0.3, 1.0, 0.8] else f"W08-P5 FAIL — got {r5}")
