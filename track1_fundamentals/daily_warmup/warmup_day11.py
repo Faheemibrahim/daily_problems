@@ -9,8 +9,16 @@ import numpy as np
 # Given a list of points, return a dict of voxel_key -> count using voxel_size=1.0.
 
 def voxel_counts(pts, voxel_size=1.0):
+<<<<<<< HEAD
     
     pass
+=======
+    counts = {}
+    for p in pts:
+        voxel_key = tuple(int(coord / voxel_size) for coord in p)
+        counts[voxel_key] = counts.get(voxel_key, 0) + 1
+    return counts
+>>>>>>> b874585 (day 11 and 12)
 
 r1 = voxel_counts([(0.1, 0.1, 0.0), (0.9, 0.1, 0.0), (1.5, 0.0, 0.0)])
 print("W11-P1 PASS" if r1.get((0, 0, 0), 0) == 2 and r1.get((1, 0, 0), 0) == 1
@@ -29,7 +37,7 @@ class Cluster:
                 sum(p[2] for p in self.points)/n)
 
 def large_clusters(clusters, min_size=3):
-    pass
+    return [cluster for cluster in clusters if cluster.size() >= min_size]
 
 clusters2 = [Cluster([(0.0, 0.0, 0.0)] * 5), Cluster([(1.0, 0.0, 0.0)] * 2)]
 r2 = large_clusters(clusters2)
@@ -40,7 +48,13 @@ print("W11-P2 PASS" if len(r2) == 1 and r2[0] is clusters2[0] else f"W11-P2 FAIL
 # Loop through a list; if the element was seen before skip it, else add to seen and result.
 
 def deduplicate_ordered(lst):
-    pass
+    seen = set()
+    result = []
+    for item in lst:
+        if item not in seen:
+            seen.add(item)
+            result.append(item)
+    return result
 
 r3 = deduplicate_ordered([3, 1, 4, 1, 5, 9, 2, 6, 5, 3])
 print("W11-P3 PASS" if r3 == [3, 1, 4, 5, 9, 2, 6] else f"W11-P3 FAIL — got {r3}")

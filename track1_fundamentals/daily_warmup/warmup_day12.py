@@ -12,7 +12,10 @@ class BoundingBox:
         self.y_min, self.y_max = y_min, y_max
         self.z_min, self.z_max = z_min, z_max
     def contains(self, p):
-        pass
+        x, y, z = p
+        return (self.x_min <= x <= self.x_max and
+                self.y_min <= y <= self.y_max and
+                self.z_min <= z <= self.z_max)
 
 bb = BoundingBox(0.0, 2.0, 0.0, 2.0, 0.0, 1.0)
 print("W12-P1 PASS inside" if bb.contains((1.0, 1.0, 0.5)) else "W12-P1 FAIL inside")
@@ -23,7 +26,11 @@ print("W12-P1 PASS outside" if not bb.contains((3.0, 1.0, 0.5)) else "W12-P1 FAI
 import math
 
 def find_nearest(query, pts):
-    pass
+    pts_arr = np.array(pts)
+    query_arr = np.array(query)
+    distances = np.linalg.norm(pts_arr - query_arr, axis=1)
+    nearest_idx = np.argmin(distances)
+    return tuple(pts_arr[nearest_idx])
 
 pts2 = [(1.0, 0.0, 0.0), (5.0, 0.0, 0.0), (2.0, 0.0, 0.0)]
 r2 = find_nearest((1.4, 0.0, 0.0), pts2)
