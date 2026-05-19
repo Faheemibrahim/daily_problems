@@ -25,7 +25,6 @@ def remove_index_1(lst):
     # there is delete and remove but do not use remove as it remove the first value 
 
     lst.pop(1)
-
     return lst
 
 r2 = remove_index_1([10, 20, 30, 40])
