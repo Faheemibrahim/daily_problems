@@ -9,6 +9,7 @@ import numpy as np
 # Given a list of points, return a dict of voxel_key -> count using voxel_size=1.0.
 
 def voxel_counts(pts, voxel_size=1.0):
+    
     pass
 
 r1 = voxel_counts([(0.1, 0.1, 0.0), (0.9, 0.1, 0.0), (1.5, 0.0, 0.0)])
