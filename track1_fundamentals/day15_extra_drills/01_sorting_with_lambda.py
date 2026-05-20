@@ -13,21 +13,21 @@
 
 
 import math
+import numpy as np
 
 
 def sort_by_x(points):
     """Return points sorted by x value ascending."""
-    pass
-
+    return sorted(points, key=lambda p: p[0])
 
 def sort_by_distance(points):
     """Return points sorted by Euclidean distance from origin ascending."""
-    pass
+    return sorted(points, key=lambda p: math.sqrt(p[0]**2 + p[1]**2 + p[2]**2))
 
 
 def sort_by_z_desc(points):
     """Return points sorted by z value descending."""
-    pass
+    return sorted(points, key=lambda p: p[2], reverse=True)
 
 
 if __name__ == "__main__":

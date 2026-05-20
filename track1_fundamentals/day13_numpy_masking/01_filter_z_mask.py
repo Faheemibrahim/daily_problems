@@ -18,6 +18,7 @@ def filter_z_positive(arr):
     print(arr)
     mask = arr[:, 2] > 0 
     print(mask)
+    print(arr[mask])
     return arr[mask]
 
 
