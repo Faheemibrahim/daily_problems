@@ -13,11 +13,14 @@
 import math
 
 
+def distance_to_origin(centroid):
+        return math.sqrt(sum(x**2 for x in centroid))
+
 def sort_clusters(clusters):
     """
     Return clusters sorted by size descending, centroid distance from origin ascending as tiebreaker.
     """
-    pass
+    return sorted(clusters, key=lambda c: (-c['size'], distance_to_origin(c['centroid'])))
 
 
 if __name__ == "__main__":
